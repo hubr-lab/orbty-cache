@@ -1,0 +1,45 @@
+{
+  "name": "orbty-http-cache",
+  "version": "0.3.1",
+  "description": "Orbty and express HTTP cache middleware.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest",
+    "lint:fix": "eslint --fix ."
+  },
+  "author": {
+    "name": "Gleisson Ricardo",
+    "email": "contato.mattos@outlook.com"
+  },
+  "readmeFilename": "README.md",
+  "keywords": [
+    "orbty",
+    "web",
+    "api",
+    "cache",
+    "express",
+    "middleware",
+    "hubr",
+    "memory"
+  ],
+  "tags": [
+    "orbty",
+    "cache",
+    "express",
+    "restful",
+    "server",
+    "microservice"
+  ],
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  },
+  "dependencies": {
+    "just-cache": "^1.6.4"
+  }
+}
