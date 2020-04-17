@@ -63,3 +63,19 @@ Cache-Control supported headers:
 - no-store
 - no-cache
 - only-if-cached
+
+## Options
+
+##### ttl
+Time to live (TTL) is the time that an object is stored in a caching system before it’s deleted.
+Value must be seconds number.
+
+#### limit
+Memory storage size limit in bytes.
+
+#### directives
+Enable directieves by HTTP headers, such as the Cache-Control header.
+
+TODO:
+
+- Implements all HTTP Cache-Control directives.
