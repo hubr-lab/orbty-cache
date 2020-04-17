@@ -74,7 +74,7 @@ Value must be seconds number.
 Memory storage size limit in bytes.
 
 #### directives
-Enable directieves by HTTP headers, such as the Cache-Control header.
+Enable directives by HTTP headers, such as the Cache-Control header.
 
 TODO:
 
