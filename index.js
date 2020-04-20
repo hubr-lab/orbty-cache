@@ -1,5 +1,5 @@
 /* !
-* orbty
+* orbty-http-cache
 * Copyright(c) 2020 Gleisson Mattos
 * http://github.com/gleissonmattos
 *
@@ -10,22 +10,51 @@
 // Get hubr memory cache module
 const Just = require("just-cache");
 
+/**
+ * Cache Manager @class
+ */
 class CacheManager {
 
+  /**
+   * Send cached value to response HTTP.
+   * This forces the sending of HTTP 304 status (Not Modified).
+   * @param {IncomingMessage} response
+   * @param {ServerResponse} storedValue
+   */
   static sendCached(response, storedValue) {
     // Send Not Modified Status
     response.statusCode = 304;
     response.send(storedValue);
   }
 
+  /**
+   * This method sends an empty response with a
+   * status of 404. It will only be called based
+   * on the Cache-Control header sent in the request
+   * @param {ServerResponse} response
+   */
   static sendNotFound(response) {
     response.statusCode = 404;
     response.send();
   }
 
+  /**
+   * Store body response cache value on just-cache
+   * This method assigns a new function that, before
+   * sending the request response, stores the response
+   * body value in the cache.
+   * @param {string} key - Key to store cache. In this module
+   * the key will be the original url of the request
+   * @param {ServerResponse} response
+   * @param {NextFunction} next
+   * @param {*} cache - Any cache value to store
+   */
   static storage(key, response, next, cache) {
+    // assigns original send function to a new key for the current response.
     response.sendAfter = response.send;
 
+    // overwrites the original send function with a new function.
+    // this new function will store the response body in the cache before sending the response
     response.send = (body) => {
       cache.put(key, body);
       response.sendAfter(body);
@@ -62,6 +91,7 @@ module.exports = (config) => {
     let onlyCached = false;
     let fromCache = true;
 
+    // Check cache control directive config
     if (config.directives) {
       const control = request.headers["Cache-Control"];
 
