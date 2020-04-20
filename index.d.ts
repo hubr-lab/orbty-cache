@@ -17,6 +17,6 @@ interface Handler {
   (req: any, res: any, next: any): any;
 }
 
-declare function OrbtyCache (options?: JustCacheOptions): Handler;
+declare function OrbtyCache (options?: JustCacheOptions | number): Handler;
 
 export = OrbtyCache;

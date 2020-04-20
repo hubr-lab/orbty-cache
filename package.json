@@ -1,6 +1,6 @@
 {
   "name": "orbty-http-cache",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Orbty and express HTTP cache middleware.",
   "main": "index.js",
   "types": "index.d.ts",
