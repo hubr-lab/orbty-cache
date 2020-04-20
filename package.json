@@ -1,6 +1,6 @@
 {
   "name": "orbty-http-cache",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Orbty and express HTTP cache middleware.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -35,7 +35,9 @@
   ],
   "files": [
     "index.js",
-    "README.md"
+    "README.md",
+    "index.d.ts",
+    "tsconfig.json"
   ],
   "license": "MIT",
   "devDependencies": {
