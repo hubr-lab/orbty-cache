@@ -10,6 +10,7 @@
 interface JustCacheOptions {
   ttl?: number;
   limit?: number;
+  directives?: boolean;
 }
 
 interface Handler {
