@@ -81,7 +81,6 @@ module.exports = (config) => {
     const stored = cache.get(key);
 
     if (stored && fromCache) {
-      console.log("From cache...");
       CacheManager.sendCached(response,stored);
     } else if (onlyCached) {
       CacheManager.sendNotFound(response);
